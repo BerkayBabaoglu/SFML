@@ -30,3 +30,21 @@
 *.exe
 *.out
 *.app
+
+# Visual Studio klasorleri
+.vs/
+x64/
+Debug/
+Release/
+
+# Cozum ve proje dosyaları (istege bagli)
+*.sln
+*.vcxproj
+*.vcxproj.user
+*.VC.db
+
+# SFML veya genel derleme klasorleri
+CMakeFiles/
+CMakeCache.txt
+cmake-build-*/
+build/
