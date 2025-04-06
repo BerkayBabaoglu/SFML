@@ -13,11 +13,11 @@ void asDegree();
 int currentMenu = 0;
 int value = 0;
 
-int main()
-{
-    SelectMenu();
-    return 0;
-}
+//int main()
+//{
+//    SelectMenu();
+//    return 0;
+//}
 
 void SelectMenu() {
     cout << "** Welcome to Angle Calculator! **" << endl;
