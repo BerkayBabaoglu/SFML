@@ -1,15 +1,42 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
 #include <iostream>
+#include <thread> //this_thread::sleep_for icin
+#include <chrono>
 
 using namespace std;
 
-int main() {
+int main()
+{
+	sf::RenderWindow window(sf::VideoMode({ 800, 600 }), "Oyun");
+	window.setFramerateLimit(60);
 
-	sf::Time t1 = sf::microseconds(10000);
-	sf::Time t2 = sf::milliseconds(10);
-	sf::Time t3 = sf::seconds(0.01f);
+	cout << "Starting the game in 3 seconds" << endl;
 
-	cout << t1.asMicroseconds() << " " << t2.asMilliseconds() << " " << t3.asSeconds() << endl;
+	this_thread::sleep_for(chrono::seconds(3));
+	
 
-	return 0;
+	cout << "START! the clock is ticking" << endl;
+
+	//sfml zaman tutucu
+	sf::Clock gameClock;
+
+	while (window.isOpen()) {
+		while (const optional event = window.pollEvent()) {
+			if (event->is<sf::Event::Closed>()) {
+				window.close();
+			}
+		}
+	}
+
+
+	//gecen sureyi al
+	sf::Time elapsed = gameClock.getElapsedTime();
+	float seconds = elapsed.asSeconds();
+
+	cout << "Elapsed time: " << seconds << " second\r";
+
+	window.clear(sf::Color::Black);
+	window.display();
+
 }
